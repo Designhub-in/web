@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background-color: #faf6ee;
+  color: #3b2f2f;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 6%;
+  background: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3b2f2f;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #c49a6c;
+}
+
+/* ===== Hamburger ===== */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #3b2f2f;
+  border-radius: 2px;
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 1rem 4%;
+  }
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  padding-top: 120px;
+}
+
+.intro {
+  font-size: 1rem;
+  color: #b88b6d;
+  margin-bottom: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero h2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.hero h2 span {
+  font-style: italic;
+  color: #b9b49d;
+}
+
+.description {
+  max-width: 700px;
+  color: #5a4b3d;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #c49a6c;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: #a87f55;
+}
+
+.btn.secondary {
+  border: 2px solid #c49a6c;
+  color: #3b2f2f;
+  background: none;
+}
+
+.btn.secondary:hover {
+  background-color: #c49a6c;
+  color: #fff;
+}
+
+/* ===== ABOUT SECTION ===== */
+.about-section {
+  background-color: #faf6ee;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.about-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.underline {
+  width: 60px;
+  height: 3px;
+  background-color: #b29269;
+  margin: 10px auto 50px;
+  border-radius: 3px;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.card {
+  background-color: #fff9f2;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card i {
+  background-color: #f0e6d5;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 22px;
+  color: #b29269;
+  margin-right: 10px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: #4b3e2b;
+}
+
+/* ===== Skills ===== */
+.skills-section {
+  text-align: left;
+}
+
+.skills-section h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #4b3e2b;
+}
+
+.skill {
+  background-color: #fff9f2;
+  padding: 20px 25px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.skill-bar {
+  background-color: #e6e2d8;
+  border-radius: 8px;
+  height: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-fill {
+  background-color: #b29269;
+  height: 100%;
+  border-radius: 8px;
+}
+
+.expert .skill-fill {
+  width: 90%;
+}
+
+.advanced .skill-fill {
+  width: 75%;
+}
+
+/* ===== PORTFOLIO SECTION ===== */
+.portfolio {
+  background-color: #faf6ee;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+.portfolio h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4b3f33;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  color: #7a6e60;
+  font-size: 1rem;
+  margin-bottom: 60px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.portfolio-card {
+  background-color: #fffaf0;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-align: left;
+  max-width: 420px;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.portfolio-content {
+  padding: 20px;
+}
+
+.portfolio-content h3 {
+  color: #4b3f33;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.portfolio-content p {
+  color: #7a6e60;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags span {
+  background-color: #f4ecdd;
+  color: #5a4b3a;
+  font-size: 0.8rem;
+  border-radius: 20px;
+  padding: 6px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tags i {
+  color: #c77b43;
+  font-size: 0.9rem;
+}
+
+/* ===== SERVICES SECTION ===== */
+.services {
+  background-color: #faf6ee;
+  padding: 100px 10%;
+  text-align: center;
+}
+
+
+.services h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #4b3f33;
+  margin-bottom: 10px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  justify-items: center;
+}
+
+.service-card {
+  background-color: #fffaf0;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 40px 25px;
+  max-width: 350px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.service-card i {
+  font-size: 2.5rem;
+  color: #c77b43;
+  margin-bottom: 20px;
+}
+
+
+
+.service-card h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #4b3f33;
+}
+
+.service-card h6 {
+  color:  #4b3f33;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.service-card p {
+  color: #7a6e60;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  background-color: #f9f4ec;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.contact-section .section-title {
+  font-size: 2.2rem;
+  color: #4a3b2a;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.contact-section .section-subtitle {
+  color: #8c6f53;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  background: #fff8f0;
+  padding: 40px 50px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+  text-align: left;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #4a3b2a;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 6px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e4d6c3;
+  border-radius: 10px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #4a3b2a;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #b07b3c;
+}
+
+.btn-submit {
+  margin-top: 25px;
+  width: 100%;
+  background: #b07b3c;
+  color: #fff8f0;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background: #946934;
+}
+
+/* Social Icons Below Form */
+.contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.contact-socials .social-icon {
+  background: #fff8f0;
+  color: #b07b3c;
+  font-size: 1.5rem;
+  padding: 14px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.contact-socials .social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  background: #b07b3c;
+  color: #fff8f0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero h2 {
+    font-size: 1.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .about-section,
+  .portfolio,
+  .services {
+    padding: 80px 6%;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .hero h2 {
+    font-size: 1rem;
+  }
+}
+/* ===== IMAGE POPUP ===== */
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.popup[aria-hidden="false"] {
+  display: flex;
+}
+
+.popup img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+  animation: popupZoom 0.3s ease;
+}
+
+.popup .close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  line-height: 1;
+  padding: 6px;
+}
+
+.popup .close:hover {
+  color: #ff6666;
+}
+
+@keyframes popupZoom {
+  from {opacity: 0; transform: scale(0.92);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+/* small screens: ensure popup fits */
+@media (max-width: 480px) {
+  .popup img { max-height: 70%; border-radius: 12px; }
+  .popup .close { top: 18px; right: 18px; font-size: 32px; }
+}
+
+</style>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manal | Creative Graphic Designer</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <!-- Site Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Manal</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <p class="intro">Hey there, I'm</p>
+    <h1>Manal Bin Mujeeb</h1>
+    <h2>Creative <span>Graphic Designer</span></h2>
+    <p class="description">
+      I bring your brand to life with bold, meaningful, and eye-catching visuals. My mission is to design experiences that connect, inspire, and tell your story through creativity.
+    </p>
+    <div class="hero-buttons">
+      <a href="#portfolio" class="btn primary"><i class="fas fa-eye"></i> View My Work</a>
+      <a href="#contact" class="btn secondary"><i class="fas fa-envelope"></i> Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <h1>About Me</h1>
+    <div class="underline"></div>
+    <div class="about-container">
+      <div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-palette"></i>My Story</div>
+          <p>My name is Manal, and I am a student with a strong interest in graphic design. I am a creative individual who is eager to learn and grow in the field of design.</p>
+        </div>
+        <div class="card">
+          <div class="card-title"><i class="fa-solid fa-star"></i>My Focus</div>
+          <p>I specialize in Adobe Photoshop and branding, creating visually compelling designs that tell stories and connect with audiences.</p>
+        </div>
+      </div>
+      <div class="skills-section">
+        <h2>Skills & Expertise</h2>
+        <div class="skill expert">
+          <div class="skill-header"><span>Adobe Photoshop</span><span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill expert">
+          <div class="skill-header"><span>Social Media Design</span><span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill advanced">
+          <div class="skill-header"><span>Logo Design</span><span>Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+        <div class="skill expert">
+          <div class="skill-header"><span>Branding</span><span>Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <h2>My Portfolio</h2>
+      <p class="section-subtitle">
+        A showcase of my creative projects that reflect my passion for graphic design and visual storytelling.
+      </p>
+      <!-- Portfolio cards (example two shown; keep your existing content but ensure onclick on images) -->
+<div class="portfolio-grid">
+  <!-- Project 1 -->
+  <div class="portfolio-card">
+    <img src="https://i.ibb.co/7t0x89VR/food-poster.png" alt="Food Poster Design" onclick="openPopup(this)">
+    <div class="portfolio-content">
+      <h3>Food Poster Design</h3>
+      <p>Creative poster for a burger combo.</p>
+      <div class="tags">
+        <span><i class="fa-brands fa-adobe"></i> Photoshop</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="portfolio-card">
+    <img src="https://i.ibb.co/Z1xhgDs6/product-design.png" alt="Product Design" onclick="openPopup(this)">
+    <div class="portfolio-content">
+      <h3>Product Design</h3>
+      <p>A product design of a premium watch.</p>
+      <div class="tags">
+        <span><i class="fa-brands fa-adobe"></i> Photoshop</span>
+      </div>
+    </div>
+  </div>
+
+  <!--  Project 3  -->
+  <div class="portfolio-card">
+    <img src="https://i.ibb.co/Y7Hfkfyj/match-day.png"  alt="Social Media Graphics" onclick="openPopup(this)">
+    <div class="portfolio-content">
+      <h3>Social Media Graphics</h3>
+      <p>Profecional Matchday Poster .</p>
+      <div class="tags">
+        <span><i class="fa-brands fa-adobe"></i> Photoshop </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Image Popup element (add this once, inside the same section or right before closing </body>) -->
+<div class="popup" id="popup" aria-hidden="true">
+  <button class="close" onclick="closePopup()" aria-label="Close popup">&times;</button>
+  <img id="popupImg" src="" alt="Enlarged project image">
+</div>
+
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <h2>My Services</h2>
+    <p class="section-subtitle">Here’s what I offer to help bring your ideas to life.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fa-solid fa-bullhorn"></i>
+        <h3>Social Media Graphics</h3>
+        <p>Creating engaging social media posts and banners that connect brands with audiences effectively.</p>
+        <h6>Which Include:</h6>
+        <p>Post Designs</p>
+        <p>Story Templates</p>
+        <p>Profile Banners</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-pen-nib"></i>
+        <h3>Branding & Identity</h3>
+        <p>Building strong visual identities through logos, color palettes, and consistent brand elements.</p>
+        <h6>Which Include:</h6>
+        <p>Logo Design</p>
+        <p>Color Palettes</p>
+        <p>Brand Guidelines</p>
+      </div>
+      <div class="service-card">
+        <i class="fa-solid fa-palette"></i>
+        <h3>Creative Design Solutions</h3>
+        <p>Offering unique, creative visuals for businesses, marketing, and personal projects with precision.</p>
+        <h6>Which Include:</h6>
+        <p>Poster Design</p>
+        <p>Print Materials</p>
+        <p>Visual Concepts</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="section-subtitle">
+      Interested in working together or just want to say hello?<br>
+      Or send me a direct message using the form below.
+    </p>
+    <div class="contact-form-container">
+      <form class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-submit">Get in Touch</button>
+      </form>
+    </div>
+ 
+    <div class="contact-socials">
+  <a href="https://www.instagram.com/_manaa.al_" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+  <a href="https://www.linkedin.com/in/yourusername" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://www.facebook.com/yourusername" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+  <a href="mailto:manalbinmujeeb@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+</div>
+
+  </section>
+
+  <!-- JavaScript File -->
+ <script>
+  // Hamburger Menu Toggle (for mobile)
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active'); // ensure you add CSS to show .nav-links.active if needed
+      hamburger.classList.toggle('open');
+    });
+  }
+
+  // ===== IMAGE POPUP SCRIPT =====
+  const popup = document.getElementById('popup');
+  const popupImg = document.getElementById('popupImg');
+
+  function openPopup(image) {
+    if (!popup || !popupImg) return;
+    popupImg.src = image.src;
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden'; // prevent body scroll while popup open
+  }
+
+  function closePopup() {
+    if (!popup) return;
+    popup.setAttribute('aria-hidden', 'true');
+    popupImg.src = '';
+    document.body.style.overflow = ''; // restore scroll
+  }
+
+  // Close popup when clicking outside the image
+  popup && popup.addEventListener('click', function(e) {
+    // if clicked directly on overlay (not on image or close button), close
+    if (e.target === popup) closePopup();
+  });
+
+  // Close on ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePopup();
+  });
+</script>
+
+
+</body>
+</html>
