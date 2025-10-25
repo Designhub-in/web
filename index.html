@@ -294,13 +294,6 @@ body {
   margin-bottom: 60px;
 }
 
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 40px;
-  justify-items: center;
-}
-
 .portfolio-card {
   background-color: #fffaf0;
   border-radius: 16px;
@@ -308,8 +301,17 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   text-align: left;
-  max-width: 420px;
+  width: 350px;
 }
+
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem 1.2rem; /* row-gap | column-gap */
+  justify-items: center;
+}
+
 
 .portfolio-card:hover {
   transform: translateY(-8px);
@@ -751,7 +753,20 @@ body {
       </div>
     </div>
   </div>
-</div>
+
+
+<div class="portfolio-grid">
+<!-- Project4 -->
+  <div class="portfolio-card">
+    <img src="https://i.ibb.co/d07k1Pyq/clinic.jpg" onclick="openPopup(this)">
+    <div class="portfolio-content">
+      <h3>Homeopathic Poster</h3>
+      <p>A poster design of a Homeopathic Clinic.</p>
+      <div class="tags">
+        <span><i class="fa-brands fa-adobe"></i> Photoshop</span>
+      </div>
+    </div>
+  </div>
 
 
 <!-- Image Popup element (add this once, inside the same section or right before closing </body>) -->
@@ -801,8 +816,8 @@ body {
   <section id="contact" class="contact-section">
     <h2 class="section-title">Let's Connect</h2>
     <p class="section-subtitle">
-      Interested in working together <br>
-       send me a direct message using the form below.
+      Interested in working together or just want to say hello?<br>
+      Or send me a direct message using the form below.
     </p>
     <div class="contact-form-container">
       <form class="contact-form">
@@ -819,7 +834,7 @@ body {
     <div class="contact-socials">
   <a href="https://www.instagram.com/_manaa.al_" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
   <a  class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-  <a  class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+  <a href="https://www.facebook.com/yourusername" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
   <a href="mailto:manalbinmujeeb@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
 </div>
 
@@ -871,4 +886,3 @@ body {
 
 </body>
 </html>
-
