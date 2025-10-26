@@ -184,7 +184,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
-  align-items: start;
+  align-items: center;
+  /* Optional: width for mobile */
 }
 
 .card {
@@ -555,7 +556,7 @@ body {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .nav-links {
     gap: 1rem;
   }
@@ -592,6 +593,51 @@ body {
     font-size: 1rem;
   }
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  /* Make all cards full width on mobile */
+  .portfolio-grid,
+  .about-container,
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Ensure cards fill horizontal space */
+  .portfolio-card,
+  .card,
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Adjust inside text for readability */
+  .portfolio-content,
+  .card,
+  .service-card {
+    padding: 20px 16px;
+    font-size: 0.95rem;
+  }
+
+  /* Images take full width */
+  .portfolio-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Buttons and spacing fix */
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
 /* ===== IMAGE POPUP ===== */
 .popup {
   display: none;
