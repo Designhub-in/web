@@ -578,6 +578,31 @@ body {
   .services {
     padding: 80px 6%;
   }
+
+ .nav-links {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  top: 70px; /* below navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px); /* fill viewport */
+  background: rgba(255, 250, 240, 0.25);
+  padding: 1.6rem;
+  text-align: center;
+  overflow-y: auto; /* allows vertical scrolling */
+  z-index: 999;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+/* Prevent body scrolling while menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
 }
 
 @media (max-width: 480px) {
@@ -896,8 +921,8 @@ body {
   <section id="contact" class="contact-section">
     <h2 class="section-title">Let's Connect</h2>
     <p class="section-subtitle">
-      Interested in working together or just want to say hello?<br>
-      Or send me a direct message using the form below.
+      Interested in working together <br>
+       send me a direct message using the form below.
     </p>
     <div class="contact-form-container">
       <form class="contact-form">
